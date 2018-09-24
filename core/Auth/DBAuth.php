@@ -53,9 +53,9 @@ class DBAuth
         $userId = $this->getUserId();
         $user = $this->db->prepare('SELECT * FROM users WHERE id = ?', [$userId], null, true);
         if($user){
-            if($user->permission === 0) {
+            if($user->permission === '0') {
                 return false;
-            }else if ($user->permission === 1){
+            }else if ($user->permission === '1'){
                 return true;
             }
         }
