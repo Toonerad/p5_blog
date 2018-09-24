@@ -10,7 +10,7 @@ class PostTable extends Table
     protected $table = 'articles';
 
     /**
-     * Récupère les derniers articles
+     * Récupère tous articles
      * @return array
      */
 
