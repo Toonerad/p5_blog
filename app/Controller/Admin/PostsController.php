@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller\Admin;
+
 use App;
 use Core\HTML\BoostrapForm;
 
@@ -14,17 +15,19 @@ class PostsController extends AppController
         $this->loadModel('Categorie');
     }
 
-    public function index(){
+    public function index()
+    {
         $posts = $this->Post->all();
         $this->render('admin.posts.index', compact('posts'));
     }
 
-    public function add(){
+    public function add()
+    {
 
         $date = new \DateTime();
         $resultDate = $date->format('Y-m-d H:i:s');
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $result = $this->Post->create([
                 'title' => $_POST['title'],
                 'content' => $_POST['content'],
@@ -34,7 +37,7 @@ class PostsController extends AppController
 
             ]);
 
-            if($result){
+            if ($result) {
                 return $this->index();
             }
         }
@@ -44,9 +47,10 @@ class PostsController extends AppController
 
     }
 
-    public function edit(){
+    public function edit()
+    {
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $result = $this->Post->update($_GET['id'], [
                 'title' => $_POST['title'],
                 'content' => $_POST['content'],
@@ -55,7 +59,7 @@ class PostsController extends AppController
 
             ]);
 
-            if($result){
+            if ($result) {
                 return $this->index();
             }
         }
@@ -68,9 +72,10 @@ class PostsController extends AppController
 
     }
 
-    public function delete(){
+    public function delete()
+    {
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $result = $this->Post->delete($_POST['id']);
             return $this->index();
         }

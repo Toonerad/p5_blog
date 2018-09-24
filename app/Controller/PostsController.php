@@ -14,16 +14,18 @@ class PostsController extends AppController
         $this->loadModel('Comment');
     }
 
-    public function index(){
+    public function index()
+    {
         $posts = $this->Post->last();
         $this->render('posts.index', compact('posts'));
     }
 
-    public  function categorie(){
+    public function categorie()
+    {
 
 
         $categorie = $this->Categorie->find($_GET['id']);
-        if ($categorie === false){
+        if ($categorie === false) {
             $this->notFound();
         }
         $articles = $this->Post->lastByCategorie($_GET['id']);
@@ -32,13 +34,15 @@ class PostsController extends AppController
 
     }
 
-    public function single(){
+    public function single()
+    {
         $article = $this->Post->findWithCategorie($_GET['id']);
         $comments = $this->Comment->getComments($_GET['id']);
         $this->render('posts.single', compact('article', 'comments'));
     }
 
-    public function blog() {
+    public function blog()
+    {
         $posts = $this->Post->all();
         $this->render('posts.blog', compact('posts'));
     }

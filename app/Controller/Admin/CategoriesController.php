@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller\Admin;
+
 use App;
 use Core\HTML\BoostrapForm;
 
@@ -13,13 +14,15 @@ class CategoriesController extends AppController
         $this->loadModel('Categorie');
     }
 
-    public function index(){
+    public function index()
+    {
         $items = $this->Categorie->all();
         $this->render('admin.categories.index', compact('items'));
     }
 
-    public function add(){
-        if(!empty($_POST)){
+    public function add()
+    {
+        if (!empty($_POST)) {
             $result = $this->Categorie->create([
                 'title' => $_POST['title']
             ]);
@@ -31,9 +34,10 @@ class CategoriesController extends AppController
 
     }
 
-    public function edit(){
+    public function edit()
+    {
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $result = $this->Categorie->update($_GET['id'], [
                 'title' => $_POST['title']
 
@@ -48,9 +52,10 @@ class CategoriesController extends AppController
 
     }
 
-    public function delete(){
+    public function delete()
+    {
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $result = $this->Categorie->delete($_POST['id']);
             return $this->index();
         }
