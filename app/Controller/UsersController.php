@@ -19,8 +19,13 @@ class UsersController extends AppController
         $form = new \Core\HTML\BoostrapForm($_POST);
         $this->render('users.login', compact('form', 'errors'));
 
-
     }
+
+    public function logout(){
+        session_destroy();
+        header('Location: index.php');
+    }
+
 
 
 

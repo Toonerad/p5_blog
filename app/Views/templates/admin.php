@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="?p=admin.users.logout">
+                        <a class="nav-link " href="?p=users.logout">
                             <i class="material-icons">note_add</i>
                             <span>Déconnexion</span>
                         </a>
