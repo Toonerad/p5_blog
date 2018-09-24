@@ -52,6 +52,12 @@
                             <span>Ajouter une catégorie</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="?p=admin.users.logout">
+                            <i class="material-icons">note_add</i>
+                            <span>Déconnexion</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
