@@ -17,7 +17,7 @@
                 <div class="card py-4 d-flex">
                     <div class="card-body">
                         <p class="card-text" style="font-size: large; color: black"><?= $article->content ?></p>
-                        <a class="btn btn-primary btn-pill" href="index.php?p=blog">Retour à la liste des articles</a>
+                        <a class="btn btn-primary btn-pill" href="index.php?p=posts.blog">Retour à la liste des articles</a>
                     </div>
 
                 </div>
