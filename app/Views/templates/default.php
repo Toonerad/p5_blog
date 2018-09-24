@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="fr">
+<html class="no-js" lang="fr" style="height:100%;>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,8 +12,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/shards.css">
 </head>
-<body class="shards-landing-page--1">
-<!-- Welcome Section -->
+<body style="position: relative;" class="shards-landing-page--1">
     <div class="container">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg pt-4 px-0">
@@ -29,7 +28,7 @@
                         <a class="nav-link" href="index.php">Accueil </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?p=blog">Blog</a>
+                        <a class="nav-link" href="index.php?p=posts.blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
@@ -37,6 +36,12 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?p=users.login">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">S'inscrire</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i></a>
                     </li>
@@ -48,38 +53,12 @@
         </nav>
         <!-- / Navigation -->
     </div> <!-- .container -->
-<!-- / Welcome Section -->
+    <!-- / Welcome Section -->
 
 
-<?= $content ?>
+    <?= $content ?>
 
 
-<!-- Footer Section -->
-<footer>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Lukadev</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-</footer>
-<!-- / Footer Section -->
 
 <!-- JavaScript Dependencies -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
