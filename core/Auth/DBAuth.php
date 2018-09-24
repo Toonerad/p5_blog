@@ -30,8 +30,19 @@ class DBAuth
     {
         $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
         if ($user){
-            if($user->password === sha1($password)) {
+            if(password_verify($password, $user->password)) {
                 $_SESSION['auth'] = $user->id;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function userExist($username) {
+
+        $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
+        if($user){
+            if($user->username === $username) {
                 return true;
             }
         }
