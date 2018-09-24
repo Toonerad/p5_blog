@@ -6,6 +6,7 @@ use \Core\Database\MysqlDatabase;
 class App
 {
     public $title = "Mon Blog";
+    public $user = [];
     private $db_instance;
     private static $_instance;
 
@@ -22,7 +23,6 @@ class App
         App\Autoloader::register();
         require '../core/Autoloader.php';
         Core\Autoloader::register();
-
     }
 
     public function getTable($name){
