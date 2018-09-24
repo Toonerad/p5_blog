@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use \App;
 use Core\Auth\DBAuth;
 use Core\HTML\BoostrapForm;
@@ -15,15 +16,20 @@ class UsersController extends AppController
     }
 
 
-    public function login(){
+    public function login()
+    {
 
-        $errors =false;
-        if(!empty($_POST)){
+        $errors = false;
+        if (!empty($_POST)) {
             $app = App::getInstance();
             $auth = new DBAuth($app->getDb());
-            if ($auth->login($_POST['username'], $_POST['password'])){
-                header('Location: index.php?p=admin.posts.index');
-            }else {
+            if ($auth->login($_POST['username'], $_POST['password'])) {
+                if($auth->isAdmin()){
+                    header('Location: index.php?p=admin.posts.index');
+                }else {
+                    header('Location: index.php?p=posts.index');
+                }
+            } else {
                 $errors = true;
             }
         }
@@ -32,18 +38,20 @@ class UsersController extends AppController
 
     }
 
-    public function register(){
-        $errors =false;
+    public function register()
+    {
+        $errors = false;
         if (!empty($_POST)) {
             $app = App::getInstance();
             $auth = new DBAuth($app->getDb());
-            if(!($auth->userExist($_POST['username']))){
+            if (!($auth->userExist($_POST['username']))) {
                 $result = $this->User->create([
                     'username' => $_POST['username'],
-                    'password' =>  password_hash($_POST['password'], PASSWORD_BCRYPT)
+                    'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+                    'permission' => 0
                 ]);
                 header('Location: index.php?p=users.login');
-            }else {
+            } else {
                 $errors = true;
             }
         }
@@ -53,12 +61,11 @@ class UsersController extends AppController
 
     }
 
-    public function logout(){
+    public function logout()
+    {
         session_destroy();
         header('Location: index.php');
     }
-
-
 
 
 }

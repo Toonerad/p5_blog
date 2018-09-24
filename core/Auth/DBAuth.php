@@ -49,6 +49,19 @@ class DBAuth
         return false;
     }
 
+    public function isAdmin(){
+        $userId = $this->getUserId();
+        $user = $this->db->prepare('SELECT * FROM users WHERE id = ?', [$userId], null, true);
+        if($user){
+            if($user->permission === 0) {
+                return false;
+            }else if ($user->permission === 1){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function logged(){
         return isset($_SESSION['auth']);
     }
