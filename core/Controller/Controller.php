@@ -25,8 +25,8 @@ class Controller{
 
     protected function forbidden(){
         header('HTTP/1.0 403 Forbidden');
-        //die('Acces interdit');
-        header('Location:   index.php?p=error');
+        die('Acces interdit');
+        //header('Location:   index.php?p=error');
     }
 
 }
