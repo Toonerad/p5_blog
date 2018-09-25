@@ -6,7 +6,6 @@ use \Core\Database\MysqlDatabase;
 class App
 {
     public $title = "Mon Blog";
-    public $user = [];
     private $db_instance;
     private static $_instance;
 
@@ -23,6 +22,16 @@ class App
         App\Autoloader::register();
         require '../core/Autoloader.php';
         Core\Autoloader::register();
+    }
+
+    public function isConnected(){
+        $auth = new \Core\Auth\DBAuth($this->getDb());
+        return $auth->isConnected();
+    }
+
+    public function getUsername(){
+        $auth = new \Core\Auth\DBAuth($this->getDb());
+        return $auth->getUsername();
     }
 
     public function getTable($name){

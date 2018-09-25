@@ -35,13 +35,47 @@
                     </li>
                 </ul>
 
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Vous êtes connecter avec le compte <strong><?= App::getInstance()->getUsername() ?></strong>.  Etes-vous sûr de vous déconnecter ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <a class="btn btn btn-outline-dark" href="index.php?p=users.logout">Yep</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?p=users.login">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">S'inscrire</a>
-                    </li>
+
+                    <?php
+                    if (App::getInstance()->isConnected()) {
+                        ?>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">
+                            Se déconnecter
+                        </button>
+                        <?php
+                    }else {
+                    ?>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary nav-link" style="margin-right: 5px;" href="index.php?p=users.login">Se connecter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn btn-outline-dark nav-link" href="index.php?p=users.register">S'enregistrer</a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i></a>
                     </li>
