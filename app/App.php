@@ -22,7 +22,16 @@ class App
         App\Autoloader::register();
         require '../core/Autoloader.php';
         Core\Autoloader::register();
+    }
 
+    public function isConnected(){
+        $auth = new \Core\Auth\DBAuth($this->getDb());
+        return $auth->isConnected();
+    }
+
+    public function getUsername(){
+        $auth = new \Core\Auth\DBAuth($this->getDb());
+        return $auth->getUsername();
     }
 
     public function getTable($name){
