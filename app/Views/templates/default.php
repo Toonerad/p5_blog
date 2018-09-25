@@ -33,6 +33,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Toonerad/p5_blog"><i class="fa fa-github"></i> Github</a>
+                    </li>
                 </ul>
 
                 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -75,13 +81,6 @@
                     <?php
                     }
                     ?>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/designrevision"><i class="fa fa-github"></i></a>
-                    </li>
                 </ul>
             </div>
         </nav>
