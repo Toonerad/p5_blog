@@ -29,6 +29,11 @@ class App
         return $auth->isConnected();
     }
 
+    public function isAdmin(){
+        $auth = new \Core\Auth\DBAuth($this->getDb());
+        return $auth->isAdmin();
+    }
+
     public function getUsername(){
         $auth = new \Core\Auth\DBAuth($this->getDb());
         return $auth->getUsername();

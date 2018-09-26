@@ -43,7 +43,7 @@ class PostsController extends AppController
 
     public function blog()
     {
-        $posts = $this->Post->all();
+        $posts = $this->Post->allPosts();
         $this->render('posts.blog', compact('posts'));
     }
 
