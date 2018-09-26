@@ -1,9 +1,13 @@
+<?php
+$app = App::getInstance();
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="fr" style="height:100%;>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= App::getInstance()->title ?></title>
+    <title><?= $app->title ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,7 +55,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                Vous êtes connecter avec le compte <strong><?= App::getInstance()->getUsername() ?></strong>.  Etes-vous sûr de vous déconnecter ?
+                                Vous êtes connecter avec le compte <strong><?= $app->getUsername() ?></strong>.  Etes-vous sûr de vous déconnecter ?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -62,14 +66,20 @@
                 </div>
 
                 <ul class="navbar-nav ml-auto">
-
                     <?php
-                    if (App::getInstance()->isConnected()) {
+                    if ($app->isConnected()) {
                         ?>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">
                             Se déconnecter
                         </button>
                         <?php
+                        if($app->isAdmin()){
+                            ?>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-danger" style="margin-left: 5px;" href="index.php?p=admin.posts.index">Administration</a>
+                            </li>
+                            <?php
+                        }
                     }else {
                     ?>
                         <li class="nav-item">

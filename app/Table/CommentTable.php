@@ -13,7 +13,7 @@ class CommentTable extends Table
      * Récupère les commentaires d'un articles
      */
     public function getComments($id) {
-        return $this->query("SELECT * FROM comments WHERE articles_id = ? ORDER BY date_added DESC", [$id], true);
+        return $this->query("SELECT * FROM comments WHERE articles_id = ? ORDER BY id DESC", [$id], false);
     }
 
 }
