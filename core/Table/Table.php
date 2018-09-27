@@ -2,30 +2,25 @@
 
 namespace Core\Table;
 
-
-
 use Core\Database\Database;
 
 class Table
 {
-
     protected $table;
     protected $db;
 
     public function __construct(Database $db)
     {
-
         $this->db = $db;
-        if(is_null($this->table)){
+        if (is_null($this->table)) {
             $parts = explode('\\', get_class($this));
             $class_name = end($parts);
             $this->table = strtolower(str_replace('Table', '', $class_name)) .'s';
-
         }
-
     }
 
-    public function all(){
+    public function all()
+    {
         return $this->query('SELECT * FROM '. $this->table);
     }
 
@@ -38,7 +33,7 @@ class Table
     {
         $sql_parts = [];
         $attributes = [];
-        foreach ($fields as $k => $v){
+        foreach ($fields as $k => $v) {
             $sql_parts[] = "$k = ?";
             $attributes[] = $v;
         }
@@ -56,7 +51,7 @@ class Table
     {
         $sql_parts = [];
         $attributes = [];
-        foreach ($fields as $k => $v){
+        foreach ($fields as $k => $v) {
             $sql_parts[] = "$k = ?";
             $attributes[] = $v;
         }
@@ -64,7 +59,8 @@ class Table
         return $this->query("INSERT INTO {$this->table} SET $sql_part", $attributes, true);
     }
 
-    public function extract($key, $value){
+    public function extract($key, $value)
+    {
         $records = $this->all();
         $return = [];
         foreach ($records as $v) {
@@ -73,15 +69,16 @@ class Table
         return $return;
     }
 
-    public function query($statement, $params = null, $one = false){
-        if($params){
+    public function query($statement, $params = null, $one = false)
+    {
+        if ($params) {
             return $this->db->prepare(
                 $statement,
                 $params,
                 str_replace('Table', 'Entity', get_class($this)),
                 $one
             );
-        }else {
+        } else {
             return $this->db->query(
                 $statement,
                 str_replace('Table', 'Entity', get_class($this)),
@@ -89,5 +86,4 @@ class Table
             );
         }
     }
-
 }

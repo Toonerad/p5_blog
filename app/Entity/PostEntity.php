@@ -6,8 +6,8 @@ use Core\Entity\Entity;
 
 class PostEntity extends Entity
 {
-
-    public function getUrl(){
+    public function getUrl()
+    {
         return 'index.php?p=posts.single&id='. $this->id;
     }
 
@@ -15,7 +15,5 @@ class PostEntity extends Entity
     {
         $html = '<p>' . substr($this->content, 0, 100) . '...</p>';
         return $html;
-
     }
-
 }

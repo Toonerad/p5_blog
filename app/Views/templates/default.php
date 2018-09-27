@@ -41,7 +41,7 @@ $app = App::getInstance();
                         <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Toonerad/p5_blog"><i class="fa fa-github"></i> Github</a>
+                        <a class="nav-link" href="https://github.com/Toonerad/" target="_blank"><i class="fa fa-github"></i> Github</a>
                     </li>
                 </ul>
 
@@ -73,15 +73,15 @@ $app = App::getInstance();
                             Se déconnecter
                         </button>
                         <?php
-                        if($app->isAdmin()){
+                        if ($app->isAdmin()) {
                             ?>
                             <li class="nav-item">
                                 <a class="btn btn-outline-danger" style="margin-left: 5px;" href="index.php?p=admin.posts.index">Administration</a>
                             </li>
                             <?php
                         }
-                    }else {
-                    ?>
+                    } else {
+                        ?>
                         <li class="nav-item">
                             <a class="btn btn-outline-primary nav-link" style="margin-right: 5px;" href="index.php?p=users.login">Se connecter</a>
                         </li>

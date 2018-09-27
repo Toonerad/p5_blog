@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-
 class PostsController extends AppController
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -22,8 +20,6 @@ class PostsController extends AppController
 
     public function categorie()
     {
-
-
         $categorie = $this->Categorie->find($_GET['id']);
         if ($categorie === false) {
             $this->notFound();
@@ -31,7 +27,6 @@ class PostsController extends AppController
         $articles = $this->Post->lastByCategorie($_GET['id']);
         $categories = $this->Categorie->all();
         $this->render('posts.categorie', compact('articles', 'categories', 'categorie'));
-
     }
 
     public function single()
@@ -46,6 +41,4 @@ class PostsController extends AppController
         $posts = $this->Post->allPosts();
         $this->render('posts.blog', compact('posts'));
     }
-
 }
-

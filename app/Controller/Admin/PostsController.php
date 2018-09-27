@@ -7,7 +7,6 @@ use Core\HTML\BoostrapForm;
 
 class PostsController extends AppController
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -23,7 +22,6 @@ class PostsController extends AppController
 
     public function add()
     {
-
         $date = new \DateTime();
         $resultDate = $date->format('Y-m-d H:i:s');
 
@@ -44,12 +42,10 @@ class PostsController extends AppController
         $categories = $this->Categorie->extract('id', 'title');
         $form = new BoostrapForm($_POST);
         $this->render('admin.posts.add', compact('categories', 'form'));
-
     }
 
     public function edit()
     {
-
         if (!empty($_POST)) {
             $result = $this->Post->update($_GET['id'], [
                 'title' => $_POST['title'],
@@ -68,18 +64,13 @@ class PostsController extends AppController
         $categories = $this->Categorie->extract('id', 'title');
         $form = new BoostrapForm($post);
         $this->render('admin.posts.edit', compact('categories', 'form'));
-
-
     }
 
     public function delete()
     {
-
         if (!empty($_POST)) {
             $result = $this->Post->delete($_POST['id']);
             return $this->index();
         }
     }
-
 }
-

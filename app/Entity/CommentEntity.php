@@ -6,6 +6,4 @@ use Core\Entity\Entity;
 
 class CommentEntity extends Entity
 {
-
-
 }

@@ -4,28 +4,30 @@ namespace Core\HTML;
 
 class BoostrapForm extends Form
 {
-
-    protected function surround($html){
+    protected function surround($html)
+    {
         return "<div class='form-group'>{$html}</div>";
     }
 
-    public function input($name, $label, $options = []){
+    public function input($name, $label, $options = [])
+    {
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label>' . $label . '</label>';
-        if($type === 'textarea') {
+        if ($type === 'textarea') {
             $input = '<textarea name="'. $name . '" class="form-control" style="height: 250px;" >' . $this->getValue($name) . '</textarea>';
-        }else {
+        } else {
             $input = '<input type="'. $type .'" name="'. $name . '" value="' . $this->getValue($name) . '" class="form-control">';
         }
         return $this->surround($label . $input);
     }
 
-    public function select($name, $label, $options) {
+    public function select($name, $label, $options)
+    {
         $label = '<label>' . $label . '</label>';
         $input = '<select class="form-control" name="'. $name .'">';
         foreach ($options as $k => $v) {
             $attributes = '';
-            if($k == $this->getValue($name)) {
+            if ($k == $this->getValue($name)) {
                 $attributes = ' selected';
             }
             $input .= "<option value='$k'$attributes>$v</option>";
@@ -34,11 +36,11 @@ class BoostrapForm extends Form
         return $this->surround($label . $input);
     }
 
-    public function submit($text = null){
-        if(isset($text)){
+    public function submit($text = null)
+    {
+        if (isset($text)) {
             return $this->surround('<button type="submit" class="btn btn-primary">'. $text .'</button>');
         }
         return $this->surround('<button type="submit" class="btn btn-primary">Envoyer</button>');
     }
-
 }
