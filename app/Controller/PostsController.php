@@ -59,8 +59,8 @@ class PostsController extends AppController
                 $mail->Port = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
-                $mail->Username = "thedarkneess55@gmail.com";
-                $mail->Password = "fripouille55";
+                $mail->Username = "hide";
+                $mail->Password = "hide";
                 $mail->setFrom($_POST['email']);
                 $mail->addReplyTo('lucas.bassand@gmail.com', 'Lukadev');
                 $mail->addAddress('toonerad@hotmail.com');
