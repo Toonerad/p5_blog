@@ -35,7 +35,7 @@ $app = App::getInstance();
                         <a class="nav-link" href="index.php?p=posts.blog">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="index.php?p=posts.contact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://twitter.com/bassandlucas" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>

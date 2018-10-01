@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Core\HTML\BoostrapForm;
+
 class PostsController extends AppController
 {
     public function __construct()
@@ -41,4 +43,23 @@ class PostsController extends AppController
         $posts = $this->Post->allPosts();
         $this->render('posts.blog', compact('posts'));
     }
+
+    public function contact()
+    {
+        $errors = false;
+        $success = false;
+        if (!empty($_POST)) {
+
+                if($success){
+                    $success = true;
+                }
+
+        }else {
+            $errors = true;
+        }
+
+        $form = new BoostrapForm($_POST);
+        $this->render('posts.contact', compact('form', 'errors', 'success'));
+    }
+
 }

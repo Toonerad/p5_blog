@@ -9,14 +9,14 @@ class BoostrapForm extends Form
         return "<div class='form-group'>{$html}</div>";
     }
 
-    public function input($name, $label, $options = [])
+    public function input($name, $label, $options = [], $id = null)
     {
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label>' . $label . '</label>';
         if ($type === 'textarea') {
-            $input = '<textarea name="'. $name . '" class="form-control" style="height: 250px;" >' . $this->getValue($name) . '</textarea>';
+            $input = '<textarea name="'. $name . '" class="form-control" id="'. $id .'" style="height: 250px;" >' . $this->getValue($name) . '</textarea>';
         } else {
-            $input = '<input type="'. $type .'" name="'. $name . '" value="' . $this->getValue($name) . '" class="form-control">';
+            $input = '<input type="'. $type .'" name="'. $name . '" value="' . $this->getValue($name) . '" class="form-control" id="'. $id .'">';
         }
         return $this->surround($label . $input);
     }

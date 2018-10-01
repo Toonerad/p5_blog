@@ -20,5 +20,6 @@ class Autoloader
             $class = str_replace('\\', '/', $class);
             require __DIR__ . '/' . $class . '.php';
         }
+        require '../vendor/autoload.php';
     }
 }
