@@ -11,7 +11,6 @@ class ComposerStaticInit4967c11349261d497fa846d8b392a502
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -33,10 +32,7 @@ class ComposerStaticInit4967c11349261d497fa846d8b392a502
         array (
             'Psr\\Log\\' => 8,
             'PhpCsFixer\\' => 11,
-        ),
-        'E' => 
-        array (
-            'Egulias\\EmailValidator\\' => 23,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'D' => 
         array (
@@ -102,9 +98,9 @@ class ComposerStaticInit4967c11349261d497fa846d8b392a502
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
         ),
-        'Egulias\\EmailValidator\\' => 
+        'PHPMailer\\PHPMailer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Doctrine\\Common\\Annotations\\' => 
         array (

@@ -1,6 +1,6 @@
 {
     "require": {
         "friendsofphp/php-cs-fixer": "^2.13",
-        "swiftmailer/swiftmailer": "^6.1"
+        "phpmailer/phpmailer": "^6.0"
     }
 }
