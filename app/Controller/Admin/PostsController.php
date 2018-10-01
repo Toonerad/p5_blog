@@ -27,10 +27,10 @@ class PostsController extends AppController
 
         if (!empty($_POST)) {
             $result = $this->Post->create([
-                'title' => $_POST['title'],
-                'content' => $_POST['content'],
-                'author' => $_POST['author'],
-                'categories_id' => $_POST['categories_id'],
+                'title' => htmlentities($_POST['title']),
+                'content' => htmlentities($_POST['content']),
+                'author' => htmlentities($_POST['author']),
+                'categories_id' => htmlentities($_POST['categories_id']),
                 'date_added' => $resultDate
 
             ]);
@@ -48,9 +48,9 @@ class PostsController extends AppController
     {
         if (!empty($_POST)) {
             $result = $this->Post->update($_GET['id'], [
-                'title' => $_POST['title'],
-                'content' => $_POST['content'],
-                'author' => $_POST['author'],
+                'title' => htmlentities($_POST['title']),
+                'content' => htmlentities($_POST['content']),
+                'author' => htmlentities($_POST['author']),
                 'categories_id' => $_POST['categories_id']
 
             ]);
