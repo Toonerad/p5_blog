@@ -32,6 +32,7 @@ class ComposerStaticInit4967c11349261d497fa846d8b392a502
         array (
             'Psr\\Log\\' => 8,
             'PhpCsFixer\\' => 11,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'D' => 
         array (
@@ -96,6 +97,10 @@ class ComposerStaticInit4967c11349261d497fa846d8b392a502
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Doctrine\\Common\\Annotations\\' => 
         array (
