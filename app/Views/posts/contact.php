@@ -1,4 +1,18 @@
-<!-- Contact Section -->
+<?php if ($errors): ?>
+
+    <div class="alert alert-danger">Veuillez remplir le formulaire correctement</div>
+
+<?php endif; ?>
+<?php if ($mailerror): ?>
+
+    <div class="alert alert-info">Le mail n'a pas pu être envoyé. Merci de réessayer plus tard</div>
+
+<?php endif; ?>
+<?php if ($success): ?>
+
+    <div class="alert alert-success">Votre message a bien été envoyé.</div>
+
+<?php endif; ?>
 <div class="contact section-invert py-4">
     <h3 class="section-title text-center m-5">Formulaire de contact</h3>
     <div class="container py-4">

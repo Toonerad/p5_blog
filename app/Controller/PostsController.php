@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Core\HTML\BoostrapForm;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class PostsController extends AppController
 {
@@ -47,17 +48,37 @@ class PostsController extends AppController
     public function contact()
     {
         $errors = false;
+        $mailerror = false;
         $success = false;
         if (!empty($_POST)) {
 
-           //PHP MAILER
+            if(!empty($_POST['email'] AND $_POST['message'] AND $_POST['username'])) {
+                $mail = new PHPMailer();
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
+                $mail->SMTPSecure = 'tls';
+                $mail->SMTPAuth = true;
+                $mail->Username = "thedarkneess55@gmail.com";
+                $mail->Password = "fripouille55";
+                $mail->setFrom($_POST['email']);
+                $mail->addReplyTo('lucas.bassand@gmail.com', 'Lukadev');
+                $mail->addAddress('toonerad@hotmail.com');
+                $mail->Subject = 'Contact du site Lukadev par '. $_POST['username'];
+                $mail->msgHTML($_POST['message']);
+                if (!$mail->send()) {
+                    $mailerror = true;
+                } else {
+                    $success = true;
+                }
+            } else {
+                $errors = true;
+            }
 
-        } else {
-            $errors = true;
         }
 
         $form = new BoostrapForm($_POST);
-        $this->render('posts.contact', compact('form', 'errors', 'success'));
+        $this->render('posts.contact', compact('form', 'errors', 'success', 'mailerror'));
     }
 
 }

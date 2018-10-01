@@ -7,11 +7,11 @@
  *
  */
 
-
 define('ROOT', dirname(__DIR__));
 
 require ROOT . '/app/App.php';
 App::load();
+
 
 if (isset($_GET['p'])) {
     $page = $_GET['p'];
@@ -28,10 +28,15 @@ if ($page[0] == 'admin') {
     $action = $page[1];
 }
 
+
+
 $filename = ROOT. $controller . '.php';
+$filename = str_replace('\\', '/', $filename);
+$filename = str_replace('App', 'app', $filename);
 if (!file_exists($filename)) {
     header('Location: index.php');
 }
+
 
 $controller = new $controller();
 $controller->$action();
