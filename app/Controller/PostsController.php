@@ -50,11 +50,25 @@ class PostsController extends AppController
         $success = false;
         if (!empty($_POST)) {
 
-                if($success){
-                    $success = true;
-                }
+            // Create the Transport
+            $transport = (new \Swift_SmtpTransport('smtp.live.com', 25))
+                ->setUsername('toonerasd@hotmail.com')
+                ->setPassword('hwrL289YF4')
+                ->setEncryption('ssl');
 
-        }else {
+
+            $mailer = new \Swift_Mailer($transport);
+
+            // Create a message
+            $message = (new \Swift_Message('Wonderful Subject'))
+                ->setFrom(['john@doe.com' => 'John Doe'])
+                ->setTo(['toonerad@hotmail.com' => 'Toonerad'])
+                ->setBody('Here is the message itself');
+
+            // Send the message
+            $result = $mailer->send($message);
+
+        } else {
             $errors = true;
         }
 
