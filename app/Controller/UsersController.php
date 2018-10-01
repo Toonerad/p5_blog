@@ -43,8 +43,8 @@ class UsersController extends AppController
             $auth = new DBAuth($app->getDb());
             if (!($auth->userExist($_POST['username']))) {
                 $result = $this->User->create([
-                    'username' => $_POST['username'],
-                    'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+                    'username' => htmlentities($_POST['username']) ,
+                    'password' => password_hash(htmlentities($_POST['password']) , PASSWORD_BCRYPT),
                     'permission' => 0
                 ]);
                 header('Location: index.php?p=users.login');

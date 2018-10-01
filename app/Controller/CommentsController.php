@@ -27,7 +27,7 @@ class CommentsController extends AppController
             if ($app->isConnected() && !empty($_GET['id'])) {
                 $result = $this->Comment->create([
                     'pseudo' => $app->getUsername(),
-                    'content' => $_POST['content'],
+                    'content' => htmlentities($_POST['content']),
                     'date_added' => $resultDate,
                     'articles_id' => $_GET['id']
                 ]);
@@ -50,7 +50,7 @@ class CommentsController extends AppController
             $app = \App::getInstance();
             $result = $this->Comment->update($_GET['id'], [
                 'pseudo' => $app->getUsername(),
-                'content' => $_POST['content'],
+                'content' => htmlentities($_POST['content']),
                 'date_added' => $resultDate,
 
             ]);

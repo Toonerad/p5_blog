@@ -23,7 +23,7 @@ class CategoriesController extends AppController
     {
         if (!empty($_POST)) {
             $result = $this->Categorie->create([
-                'title' => $_POST['title']
+                'title' => htmlentities($_POST['title'])
             ]);
             return $this->index();
         }
@@ -35,7 +35,7 @@ class CategoriesController extends AppController
     {
         if (!empty($_POST)) {
             $result = $this->Categorie->update($_GET['id'], [
-                'title' => $_POST['title']
+                'title' => htmlentities($_POST['title'])
 
             ]);
             return $this->index();
