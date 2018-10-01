@@ -7,7 +7,6 @@ use Core\HTML\BoostrapForm;
 
 class CategoriesController extends AppController
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -27,16 +26,13 @@ class CategoriesController extends AppController
                 'title' => $_POST['title']
             ]);
             return $this->index();
-
         }
         $form = new BoostrapForm();
         $this->render('admin.categories.add', compact('form'));
-
     }
 
     public function edit()
     {
-
         if (!empty($_POST)) {
             $result = $this->Categorie->update($_GET['id'], [
                 'title' => $_POST['title']
@@ -48,18 +44,13 @@ class CategoriesController extends AppController
         $categorie = $this->Categorie->find($_GET['id']);
         $form = new BoostrapForm($categorie);
         $this->render('admin.categories.edit', compact('form'));
-
-
     }
 
     public function delete()
     {
-
         if (!empty($_POST)) {
             $result = $this->Categorie->delete($_POST['id']);
             return $this->index();
         }
     }
-
 }
-

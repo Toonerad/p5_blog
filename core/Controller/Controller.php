@@ -2,8 +2,8 @@
 
 namespace Core\Controller;
 
-class Controller{
-
+class Controller
+{
     protected $viewPath;
     protected $template;
 
@@ -11,22 +11,23 @@ class Controller{
     {
         ob_start();
         extract($variables);
-        require ($this->viewPath . str_replace('.', '/', $view) . '.php');
+        require($this->viewPath . str_replace('.', '/', $view) . '.php');
         $content = ob_get_clean();
-        require ($this->viewPath . 'templates/' . $this->template . '.php');
+        require($this->viewPath . 'templates/' . $this->template . '.php');
     }
 
 
-    protected function notFound(){
+    protected function notFound()
+    {
         header('HTTP/1.0 404 Not Found');
         //header('Location: http://www.google.com/');
         header('Location:   index.php?p=error');
     }
 
-    protected function forbidden(){
+    protected function forbidden()
+    {
         header('HTTP/1.0 403 Forbidden');
         die('Acces interdit');
         //header('Location:   index.php?p=error');
     }
-
 }

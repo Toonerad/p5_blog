@@ -38,7 +38,7 @@
                 </div>
             </div>
             <?php
-        }else {
+        } else {
             ?>
             <div class="container">
                 <div class="row justify-content-md-center">
@@ -46,7 +46,6 @@
                 </div>
             </div>
             <?php
-
         }
 
 
@@ -55,7 +54,7 @@
             <h4 class="card-text">Pas de commentaires sur cet article</h4>
             <?php
         } else {
-        foreach ($comments as $comment):
+            foreach ($comments as $comment):
             ?>
 
             <div class="card" style="margin-bottom: 5px">
@@ -67,14 +66,12 @@
                         ?>
                         <em>(<a href="index.php?p=comments.edit&id=<?= $comment->id ?>&aid=<?= $article->id ?>">modifier</a>)</em>
                         <?php
-                    }
-                    ?>
+                    } ?>
                     <p class="card-text" style="font-size: 20px; margin-top: 5px"><?= $comment->content ?></p>
                 </div>
             </div>
         <?php
         endforeach;
-
         }
 
         ?>

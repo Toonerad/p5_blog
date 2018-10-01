@@ -23,7 +23,7 @@ class MysqlDatabase extends Database
 
     private function getPDO()
     {
-        if($this->pdo === null){
+        if ($this->pdo === null) {
             $pdo = new PDO('mysql:host=' . $this->db_host .';dbname='. $this->db_name .';charset=utf8', $this->db_user, $this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
@@ -42,14 +42,14 @@ class MysqlDatabase extends Database
         ) {
             return $req;
         }
-        if($class_name === null){
+        if ($class_name === null) {
             $req->setFetchMode(PDO::FETCH_OBJ);
-        }else {
+        } else {
             $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
         }
-        if($one) {
+        if ($one) {
             $datas = $req->fetch();
-        }else {
+        } else {
             $datas = $req->fetchAll();
         }
         return $datas;
@@ -68,21 +68,21 @@ class MysqlDatabase extends Database
         ) {
             return $res;
         }
-        if($class_name === null){
+        if ($class_name === null) {
             $req->setFetchMode(PDO::FETCH_OBJ);
-        }else {
+        } else {
             $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
         }
-        if($one) {
+        if ($one) {
             $datas = $req->fetch();
-        }else {
+        } else {
             $datas = $req->fetchAll();
         }
         return $datas;
     }
 
-    public function lastInsertId(){
+    public function lastInsertId()
+    {
         return $this->getPDO()->lastInsertId();
     }
-
 }

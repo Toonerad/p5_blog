@@ -7,7 +7,6 @@ use \Core\Auth\DBAuth;
 
 class AppController extends App\Controller\AppController
 {
-
     protected $template = 'admin';
 
     public function __construct()
@@ -18,8 +17,5 @@ class AppController extends App\Controller\AppController
         if (!$auth->logged() || !$auth->isAdmin()) {
             $this->forbidden();
         }
-
     }
-
-
 }

@@ -7,7 +7,6 @@ use \App;
 
 class AppController extends Controller
 {
-
     protected $template = 'default';
 
     public function __construct()
@@ -19,5 +18,4 @@ class AppController extends Controller
     {
         $this->$model_name = App::getInstance()->getTable($model_name);
     }
-
 }

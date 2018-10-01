@@ -1,4 +1,4 @@
-<?php if($errors): ?>
+<?php if ($errors): ?>
 
     <div class="alert alert-danger">Problème avec l'enregistrement de l'utilisateur. Veuillez réessayer avec un autre pseudo</div>
 

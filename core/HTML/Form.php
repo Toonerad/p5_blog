@@ -4,7 +4,6 @@ namespace Core\HTML;
 
 class Form
 {
-
     protected $data;
     public $surround = 'p';
 
@@ -13,28 +12,30 @@ class Form
         $this->data = $data;
     }
 
-    protected function surround($html){
+    protected function surround($html)
+    {
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
 
-    protected function getValue($index){
-        if(is_object($this->data)){
+    protected function getValue($index)
+    {
+        if (is_object($this->data)) {
             return $this->data->$index;
         }
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 
-    public function input($name, $label, $options = []){
+    public function input($name, $label, $options = [])
+    {
         $type = isset($options['type']) ? $options['type'] : 'text';
         return $this->surround('<input type="' . $type . '" name="'. $name . '" value="' . $this->getValue($name) . '">');
     }
 
-    public function submit($text = null){
-        if(isset($text)){
+    public function submit($text = null)
+    {
+        if (isset($text)) {
             return $this->surround('<button type="submit">'. $text.'</button>');
         }
         return $this->surround('<button type="submit">Envoyer</button>');
     }
-
-
 }

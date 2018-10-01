@@ -2,15 +2,11 @@
 
 namespace App\Controller;
 
-
 use Core\Auth\DBAuth;
 use Core\HTML\BoostrapForm;
 
 class CommentsController extends AppController
 {
-
-
-
     public function __construct()
     {
         parent::__construct();
@@ -28,7 +24,7 @@ class CommentsController extends AppController
         if (!empty($_POST)) {
             $app = \App::getInstance();
 
-            if($app->isConnected() && !empty($_GET['id'])) {
+            if ($app->isConnected() && !empty($_GET['id'])) {
                 $result = $this->Comment->create([
                     'pseudo' => $app->getUsername(),
                     'content' => $_POST['content'],
@@ -36,15 +32,13 @@ class CommentsController extends AppController
                     'articles_id' => $_GET['id']
                 ]);
                 header('Location: index.php?p=posts.single&id='. $_GET['id']);
-            }
-            else {
+            } else {
                 $errors = true;
             }
         }
 
         $form = new BoostrapForm($_POST);
         $this->render('comments.add', compact('form', 'errors'));
-
     }
 
     public function edit()
@@ -69,19 +63,14 @@ class CommentsController extends AppController
         $comment = $this->Comment->find($_GET['id']);
         $form = new BoostrapForm($comment);
         $this->render('comments.edit', compact('form'));
-
-
     }
 
 
     public function delete()
     {
-
         if (!empty($_POST)) {
             $result = $this->Comment->delete($_POST['id']);
             header('Location: index.php?p=posts.single&id='. $_GET['aid']);
         }
     }
-
 }
-

@@ -27,5 +27,11 @@ if ($page[0] == 'admin') {
     $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
     $action = $page[1];
 }
+
+$filename = ROOT. $controller . '.php';
+if (!file_exists($filename)) {
+    header('Location: index.php');
+}
+
 $controller = new $controller();
 $controller->$action();

@@ -6,7 +6,6 @@ use Core\Table\Table;
 
 class PostTable extends Table
 {
-
     protected $table = 'articles';
 
     /**
@@ -14,7 +13,8 @@ class PostTable extends Table
      * @return array
      */
 
-    public function allPosts(){
+    public function allPosts()
+    {
         return $this->query("SELECT articles.* , categories.title as categories 
                             FROM articles 
                             LEFT JOIN categories 
@@ -22,7 +22,8 @@ class PostTable extends Table
                             ORDER BY articles.date_added DESC");
     }
 
-    public function last(){
+    public function last()
+    {
         return $this->query("SELECT articles.* , categories.title as categories 
                             FROM articles 
                             LEFT JOIN categories 
@@ -37,7 +38,8 @@ class PostTable extends Table
      * @return array
      */
 
-    public function lastByCategorie($categorie_id){
+    public function lastByCategorie($categorie_id)
+    {
         return $this->query("SELECT articles.id, articles.title, articles.content, articles.author, categories.title as categories 
                             FROM articles 
                             LEFT JOIN categories 
@@ -52,12 +54,12 @@ class PostTable extends Table
      * @return \App\Entity\PostEntity
      */
 
-    public function findWithCategorie($id){
+    public function findWithCategorie($id)
+    {
         return $this->query("SELECT articles.id, articles.title, articles.content, articles.author, articles.categories_id, categories.title as categories 
                             FROM articles 
                             LEFT JOIN categories 
                                 ON categories_id = categories.id
                             WHERE articles.id = ?", [$id], true);
     }
-
 }

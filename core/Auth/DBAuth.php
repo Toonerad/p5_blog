@@ -6,7 +6,6 @@ use Core\Database\Database;
 
 class DBAuth
 {
-
     private $db;
 
     public function __construct(Database $db)
@@ -41,7 +40,6 @@ class DBAuth
 
     public function userExist($username)
     {
-
         $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
         if ($user) {
             if ($user->username === $username) {
@@ -58,7 +56,7 @@ class DBAuth
         if ($user) {
             if ($user->permission === '0') {
                 return false;
-            } else if ($user->permission === '1') {
+            } elseif ($user->permission === '1') {
                 return true;
             }
         }
@@ -69,12 +67,13 @@ class DBAuth
     {
         if ($this->logged()) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    public function getUsername(){
+    public function getUsername()
+    {
         $userId = $this->getUserId();
         $user = $this->db->prepare('SELECT * FROM users WHERE id = ?', [$userId], null, true);
         if ($user) {
@@ -88,5 +87,4 @@ class DBAuth
     {
         return isset($_SESSION['auth']);
     }
-
 }
